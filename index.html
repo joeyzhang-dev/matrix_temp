@@ -157,6 +157,131 @@
             letter-spacing: 0.5px;
         }
 
+        /* Mobile Tier Cards */
+        .mobile-tiers {
+            display: none;
+        }
+
+        .mobile-tier-card {
+            background: linear-gradient(135deg, #141414 0%, #0f0f0f 100%);
+            border: 2px solid;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-tier-card.bronze {
+            border-color: #C76E2A;
+            background: linear-gradient(135deg, rgba(199, 110, 42, 0.08) 0%, #0f0f0f 100%);
+        }
+
+        .mobile-tier-card.silver {
+            border-color: #E8E8E8;
+            background: linear-gradient(135deg, rgba(232, 232, 232, 0.08) 0%, #0f0f0f 100%);
+        }
+
+        .mobile-tier-card.gold {
+            border-color: #FFD700;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, #0f0f0f 100%);
+        }
+
+        .mobile-tier-card.partner {
+            border-color: #00ff88;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, #0f0f0f 100%);
+        }
+
+        .mobile-tier-header {
+            text-align: center;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-tier-name {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .mobile-tier-card.bronze .mobile-tier-name { color: #C76E2A; }
+        .mobile-tier-card.silver .mobile-tier-name { color: #E8E8E8; }
+        .mobile-tier-card.gold .mobile-tier-name { color: #FFD700; }
+        .mobile-tier-card.partner .mobile-tier-name { color: #00ff88; }
+
+        .mobile-tier-price {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 4px;
+        }
+
+        .mobile-tier-card.bronze .mobile-tier-price { 
+            color: #C76E2A;
+            text-shadow: 0 0 10px rgba(199, 110, 42, 0.3);
+        }
+        .mobile-tier-card.silver .mobile-tier-price { 
+            color: #E8E8E8;
+            text-shadow: 0 0 10px rgba(232, 232, 232, 0.3);
+        }
+        .mobile-tier-card.gold .mobile-tier-price { 
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        .mobile-tier-card.partner .mobile-tier-price { 
+            color: #00ff88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        .mobile-category {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #00ff88;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 3px solid #00ff88;
+        }
+
+        .mobile-benefit {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px 14px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            border-left: 3px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .mobile-benefit-label {
+            font-size: 12px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .mobile-benefit-value {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        .mobile-benefit-value strong {
+            color: #00ff88;
+            font-weight: 800;
+        }
+
+        .mobile-check {
+            color: #00ff88;
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        .mobile-dash {
+            color: #555;
+            font-weight: 400;
+        }
+
         /* Tier Grid Styles */
         .tier-grid {
             display: grid;
@@ -831,37 +956,15 @@
                 font-size: 13px;
             }
 
-            /* Make tier grid horizontally scrollable */
+            /* Hide desktop table, show mobile cards */
             .tier-grid {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                grid-template-columns: 180px repeat(4, 220px);
-                min-width: 1060px;
-                font-size: 12px;
+                display: none;
             }
             .scroll-hint {
+                display: none;
+            }
+            .mobile-tiers {
                 display: block;
-            }
-            .tier-name {
-                font-size: 17px;
-            }
-            .tier-price {
-                font-size: 22px;
-            }
-            .tier-label {
-                font-size: 8px;
-            }
-            .cell {
-                font-size: 12px;
-                padding: 12px 10px;
-            }
-            .cell.row-label {
-                font-size: 13px;
-                padding-left: 16px;
-            }
-            .category-row {
-                font-size: 10px;
-                padding: 8px 16px;
             }
 
             .addons-grid {
@@ -1059,6 +1162,225 @@
                 <div class="cell">+ Attendance</div>
                 <div class="cell"><span class="highlight-text">Full Hackathon Report</span></div>
                 <div class="cell"><span class="highlight-text">Full Monthly Report</span></div>
+            </div>
+
+            <!-- Mobile Tier Cards (shown on mobile only) -->
+            <div class="mobile-tiers">
+                <!-- Bronze Tier -->
+                <div class="mobile-tier-card bronze">
+                    <div class="mobile-tier-header">
+                        <div class="mobile-tier-name">Bronze</div>
+                        <div class="mobile-tier-price">$300</div>
+                    </div>
+
+                    <div class="mobile-category">What You Fund</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Food/supplies</div>
+                        <div class="mobile-benefit-value">25% of 12hr hackathon</div>
+                    </div>
+
+                    <div class="mobile-category">Event Benefits</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Exhibitor Tables</div>
+                        <div class="mobile-benefit-value"><span class="mobile-dash">—</span></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Judge Seats</div>
+                        <div class="mobile-benefit-value"><span class="mobile-dash">—</span></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Speaking Opportunity</div>
+                        <div class="mobile-benefit-value">Verbal thank-you</div>
+                    </div>
+
+                    <div class="mobile-category">Recruitment</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Resume Book</div>
+                        <div class="mobile-benefit-value"><span class="mobile-check">✓</span></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Interview Room</div>
+                        <div class="mobile-benefit-value"><span class="mobile-dash">—</span></div>
+                    </div>
+
+                    <div class="mobile-category">Marketing & Visibility</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Logo (Web & Social)</div>
+                        <div class="mobile-benefit-value">Small</div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Social Posts</div>
+                        <div class="mobile-benefit-value">1 Post</div>
+                    </div>
+
+                    <div class="mobile-category">Reporting & Insights</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Event Recap</div>
+                        <div class="mobile-benefit-value">Photos</div>
+                    </div>
+                </div>
+
+                <!-- Silver Tier -->
+                <div class="mobile-tier-card silver">
+                    <div class="mobile-tier-header">
+                        <div class="mobile-tier-name">Silver</div>
+                        <div class="mobile-tier-price">$750</div>
+                    </div>
+
+                    <div class="mobile-category">What You Fund</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Food/supplies</div>
+                        <div class="mobile-benefit-value"><strong>50% of 12hr hackathon</strong> + 1 workshop</div>
+                    </div>
+
+                    <div class="mobile-category">Event Benefits</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Exhibitor Tables</div>
+                        <div class="mobile-benefit-value"><strong>1</strong></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Judge Seats</div>
+                        <div class="mobile-benefit-value"><strong>2</strong></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Speaking Opportunity</div>
+                        <div class="mobile-benefit-value">Panel/5-min talk</div>
+                    </div>
+
+                    <div class="mobile-category">Recruitment</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Resume Book</div>
+                        <div class="mobile-benefit-value"><span class="mobile-check">✓</span></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Interview Room</div>
+                        <div class="mobile-benefit-value"><span class="mobile-check">✓</span></div>
+                    </div>
+
+                    <div class="mobile-category">Marketing & Visibility</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Logo (Web & Social)</div>
+                        <div class="mobile-benefit-value">Medium</div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Social Posts</div>
+                        <div class="mobile-benefit-value">2 Posts</div>
+                    </div>
+
+                    <div class="mobile-category">Reporting & Insights</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Event Recap</div>
+                        <div class="mobile-benefit-value">Photos + Attendance</div>
+                    </div>
+                </div>
+
+                <!-- Gold Tier -->
+                <div class="mobile-tier-card gold">
+                    <div class="mobile-tier-header">
+                        <div class="mobile-tier-name">Gold</div>
+                        <div class="mobile-tier-price">$1,500</div>
+                    </div>
+
+                    <div class="mobile-category">What You Fund</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Food/supplies</div>
+                        <div class="mobile-benefit-value"><strong>100% hackathon</strong> + semester support</div>
+                    </div>
+
+                    <div class="mobile-category">Event Benefits</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Exhibitor Tables</div>
+                        <div class="mobile-benefit-value"><strong>2</strong></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Judge Seats</div>
+                        <div class="mobile-benefit-value"><strong>2</strong></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Speaking Opportunity</div>
+                        <div class="mobile-benefit-value"><strong>2 panel/5min-talk</strong></div>
+                    </div>
+
+                    <div class="mobile-category">Recruitment</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Resume Book</div>
+                        <div class="mobile-benefit-value"><span class="mobile-check">✓</span> <strong>Priority</strong></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Interview Room</div>
+                        <div class="mobile-benefit-value"><span class="mobile-check">✓</span></div>
+                    </div>
+
+                    <div class="mobile-category">Marketing & Visibility</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Logo (Web & Social)</div>
+                        <div class="mobile-benefit-value"><strong>Large</strong></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Social Posts</div>
+                        <div class="mobile-benefit-value">2 Posts + Dedicated Post</div>
+                    </div>
+
+                    <div class="mobile-category">Reporting & Insights</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Event Recap</div>
+                        <div class="mobile-benefit-value"><strong>Full Hackathon Report</strong></div>
+                    </div>
+                </div>
+
+                <!-- Title Partner -->
+                <div class="mobile-tier-card partner">
+                    <div class="mobile-tier-header">
+                        <div class="mobile-tier-name">Title Partner</div>
+                        <div class="mobile-tier-price">$3,000+</div>
+                    </div>
+
+                    <div class="mobile-category">What You Fund</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Food/supplies</div>
+                        <div class="mobile-benefit-value"><strong>Full support</strong> — all events + branding</div>
+                    </div>
+
+                    <div class="mobile-category">Event Benefits</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Exhibitor Tables</div>
+                        <div class="mobile-benefit-value"><strong>4</strong></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Judge Seats</div>
+                        <div class="mobile-benefit-value"><strong>3</strong></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Speaking Opportunity</div>
+                        <div class="mobile-benefit-value"><strong>Presented-by branding</strong> all semester</div>
+                    </div>
+
+                    <div class="mobile-category">Recruitment</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Resume Book</div>
+                        <div class="mobile-benefit-value"><span class="mobile-check">✓</span> <strong>Priority (all semester)</strong></div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Interview Room</div>
+                        <div class="mobile-benefit-value"><span class="mobile-check">✓</span></div>
+                    </div>
+
+                    <div class="mobile-category">Marketing & Visibility</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Logo (Web & Social)</div>
+                        <div class="mobile-benefit-value"><strong>Huge</strong> — Premium Placement</div>
+                    </div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Social Posts</div>
+                        <div class="mobile-benefit-value"><strong>Dedicated Reels/Posts</strong> all semester</div>
+                    </div>
+
+                    <div class="mobile-category">Reporting & Insights</div>
+                    <div class="mobile-benefit">
+                        <div class="mobile-benefit-label">Event Recap</div>
+                        <div class="mobile-benefit-value"><strong>Full Monthly Report</strong></div>
+                    </div>
+                </div>
             </div>
         </div>
 
