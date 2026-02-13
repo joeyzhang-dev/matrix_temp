@@ -4,9 +4,14 @@ this is a comprehensive sponsorship package for our 12-hour hackathon event. the
 
 ## what's included
 
-the sponsorship matrix consists of two main sections:
+the sponsorship matrix is a single-page website with three main sections:
 
-### slide 1: sponsorship tiers
+### disclaimer & contact
+- prominent contact information at the top of the page
+- clear messaging that all prices and packages are negotiable
+- direct links to schedule calls, email, or phone contact
+
+### section 1: sponsorship tiers
 - four tier levels: bronze ($300), silver ($750), gold ($1,500), and title partner ($3,000+)
 - breakdown of what each tier funds (event food/supplies, workshops, semester-long support)
 - event benefits (exhibitor tables, judge seats, speaking opportunities)
@@ -14,7 +19,7 @@ the sponsorship matrix consists of two main sections:
 - marketing visibility (logo placement, social media posts)
 - reporting and insights (event recaps, attendance data, full reports)
 
-### slide 2: add-ons & options
+### section 2: add-ons & options
 - event add-ons: challenge sponsor ($600), category prize ($400), mentor squad ($300)
 - critical needs: prize pool funding ($200-$800), event media ($150-$400)
 - in-kind contributions: tools/credits, cloud/api access, snacks, swag, printing
@@ -23,9 +28,10 @@ the sponsorship matrix consists of two main sections:
 
 ### for presenting to sponsors
 1. navigate to the live site at https://joeyzhang-dev.github.io/matrix_temp/
-2. use arrow keys, scroll, or on-screen buttons to move between slides
+2. scroll down naturally to view all sections
 3. walk through tier benefits first, then discuss add-ons based on sponsor interest
-4. all pricing and packages are fully negotiable
+4. contact information stays visible at the top for easy reference
+5. all pricing and packages are fully negotiable
 
 ### for reference
 - each tier clearly shows the direct impact of sponsorship dollars
@@ -33,21 +39,18 @@ the sponsorship matrix consists of two main sections:
 - add-ons allow sponsors to customize their involvement beyond base tiers
 - in-kind contributions are valued fairly and matched to appropriate tier benefits
 
-## navigation controls
-
-when viewing the site:
-- click next/previous buttons
-- use arrow keys (up/down or left/right)
-- scroll with mouse wheel
-- swipe on touch devices
-- press home to go to first slide
-- press end to go to last slide
+### mobile friendly
+- fully responsive design works on all screen sizes
+- tier table scrolls horizontally on mobile to maintain readability
+- scroll hint appears on mobile: "swipe to view all tiers"
+- all cards and content reflow for optimal mobile viewing
 
 ## customization
 
 to update pricing or benefits:
-- edit `slide-1-tiers.html` for tier information
-- edit `slide-2-addons.html` for add-ons and options
+- edit `index.html` - all content is in one file
+- find the section you want to update (tiers or add-ons)
+- modify prices, benefits, or text as needed
 - push changes to github and pages will automatically update
 
 ## important note

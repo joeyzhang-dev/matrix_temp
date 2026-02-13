@@ -14,186 +14,1126 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            overflow-x: hidden;
+            color: #ffffff;
+            line-height: 1.4;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             scroll-behavior: smooth;
         }
 
-        .slide-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0;
-        }
-
-        iframe {
-            width: 100vw;
-            height: 100vh;
-            border: none;
-            display: block;
-            scroll-snap-align: start;
-        }
-
         html {
-            scroll-snap-type: y mandatory;
+            scroll-snap-type: y proximity;
         }
 
-
-        .disclaimer-footer {
-            position: fixed;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
-            padding: 14px 32px;
-            border-radius: 10px;
-            border: 2px solid rgba(0, 255, 136, 0.4);
-            backdrop-filter: blur(12px);
-            max-width: 95%;
+        /* Disclaimer Section */
+        .disclaimer-section {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.08) 0%, rgba(10, 10, 10, 0.95) 100%);
+            border-bottom: 2px solid rgba(0, 255, 136, 0.3);
+            padding: 20px;
             text-align: center;
-            font-size: 14px;
-            color: #ccc;
-            line-height: 1.5;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7),
-                        0 0 30px rgba(0, 255, 136, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .disclaimer-text {
-            display: inline;
+            font-size: 16px;
             font-weight: 600;
+            color: #ccc;
+            margin-bottom: 12px;
         }
 
         .disclaimer-text strong {
             color: #00ff88;
             font-weight: 900;
-            font-size: 15px;
+            font-size: 18px;
             text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
         }
 
         .contact-info {
-            display: inline;
-            margin-left: 10px;
-        }
-
-        .contact-item {
-            display: inline;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .contact-item a {
             color: #00ff88;
             text-decoration: none;
             font-weight: 800;
-            font-size: 14px;
+            font-size: 15px;
+            padding: 6px 12px;
+            border-radius: 6px;
             transition: all 0.3s ease;
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-shadow: 0 0 8px rgba(0, 255, 136, 0.2);
+            display: inline-block;
+            border: 1px solid rgba(0, 255, 136, 0.3);
         }
 
         .contact-item a:hover {
             background: rgba(0, 255, 136, 0.2);
-            color: #00ffaa;
             transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
         }
 
         .contact-separator {
             color: #666;
-            margin: 0 10px;
             font-weight: bold;
         }
 
-        /* Tablet and small desktop */
-        @media (max-width: 1200px) {
-            iframe {
-                width: 100vw;
-                height: 100vh;
+        /* Content Container */
+        .content-wrapper {
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        /* Slide Sections */
+        .slide {
+            padding: 60px 70px;
+            min-height: calc(100vh - 120px);
+            display: flex;
+            flex-direction: column;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 136, 0.04), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.03), transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(232, 232, 232, 0.02), transparent 50%);
+            position: relative;
+            scroll-snap-align: start;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .slide-header {
+            margin-bottom: 28px;
+            position: relative;
+            padding-bottom: 12px;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 255, 136, 0.3) 50%, 
+                transparent 100%) 1;
+        }
+
+        .slide-title {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 4px;
+            background: linear-gradient(135deg, #fff 0%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .slide-subtitle {
+            font-size: 18px;
+            color: #888;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .scroll-hint {
+            display: none;
+            text-align: center;
+            font-size: 11px;
+            color: #00ff88;
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Tier Grid Styles */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: 260px repeat(4, 1fr);
+            gap: 1px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
+                        0 0 0 1px rgba(255, 255, 255, 0.05),
+                        0 0 80px rgba(0, 255, 136, 0.02);
+            animation: breathe 6s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { 
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
+                            0 0 0 1px rgba(255, 255, 255, 0.05),
+                            0 0 80px rgba(0, 255, 136, 0.02);
             }
-            .disclaimer-footer {
+            50% { 
+                box-shadow: 0 22px 65px rgba(0, 0, 0, 0.65),
+                            0 0 0 1px rgba(255, 255, 255, 0.06),
+                            0 0 90px rgba(0, 255, 136, 0.03);
+            }
+        }
+
+        .tier-header-cell {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 16px 12px;
+            text-align: center;
+            border-bottom: 2px solid #333;
+            min-height: 95px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2px;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
+        }
+
+        .tier-header-cell:first-child {
+            background: transparent;
+            border: none;
+            clip-path: none;
+        }
+
+        .tier-header-cell::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent 60%, var(--tier-color) 90%, transparent 100%);
+            opacity: 0.03;
+            animation: rotate 10s linear infinite;
+            pointer-events: none;
+        }
+
+        .tier-header-cell:first-child::before,
+        .tier-header-cell:first-child::after {
+            display: none;
+        }
+
+        .tier-header-cell::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                transparent 100%);
+            animation: shimmer 5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { left: -100%; opacity: 0; }
+            40% { opacity: 1; }
+            60% { opacity: 1; }
+            100% { left: 100%; opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.92; }
+        }
+
+        .bronze { 
+            --tier-color: #C76E2A;
+            border-top: 4px solid #C76E2A;
+            box-shadow: inset 0 4px 10px rgba(199, 110, 42, 0.1),
+                        0 0 12px rgba(199, 110, 42, 0.05);
+        }
+
+        .silver { 
+            --tier-color: #E8E8E8;
+            border-top: 4px solid #E8E8E8;
+            box-shadow: inset 0 4px 10px rgba(232, 232, 232, 0.1),
+                        0 0 12px rgba(232, 232, 232, 0.05);
+        }
+
+        .gold { 
+            --tier-color: #FFD700;
+            border-top: 4px solid #FFD700;
+            box-shadow: inset 0 4px 10px rgba(255, 215, 0, 0.12),
+                        0 0 15px rgba(255, 215, 0, 0.08);
+        }
+
+        .partner { 
+            --tier-color: #00ff88;
+            border-top: 4px solid #00ff88;
+            background: linear-gradient(180deg, rgba(0, 255, 136, 0.08) 0%, #0a0a0a 100%);
+            box-shadow: inset 0 4px 12px rgba(0, 255, 136, 0.12), 
+                        0 0 20px rgba(0, 255, 136, 0.1);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .tier-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #666;
+            margin-bottom: 2px;
+            font-weight: 800;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tier-name {
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 2px;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tier-price {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 1px;
+            white-space: nowrap;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bronze .tier-price { 
+            color: #C76E2A;
+            text-shadow: 0 0 12px rgba(199, 110, 42, 0.25),
+                         0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        .silver .tier-price { 
+            color: #E8E8E8;
+            text-shadow: 0 0 12px rgba(232, 232, 232, 0.2),
+                         0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        .gold .tier-price { 
+            color: #FFD700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3),
+                         0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        .partner .tier-price { 
+            color: #00ff88;
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.3),
+                         0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .tier-contribution {
+            font-size: 10px;
+            color: #888;
+            margin-top: 3px;
+            min-height: 13px;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: 0.2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bronze::after,
+        .silver::after,
+        .gold::after {
+            content: '→';
+            position: absolute;
+            right: -16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.2);
+            z-index: 10;
+            animation: float 3s ease-in-out infinite;
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%) translateX(0); opacity: 0.2; }
+            50% { transform: translateY(-50%) translateX(3px); opacity: 0.35; }
+        }
+
+        .partner .tier-price::before {
+            content: '✦';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 11px;
+            color: #00ff88;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        .partner .tier-price::after {
+            content: '✦';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 11px;
+            color: #00ff88;
+            animation: sparkle 3s ease-in-out infinite 1.5s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.2; transform: translateY(-50%) scale(0.9); }
+            50% { opacity: 0.5; transform: translateY(-50%) scale(1.05); }
+        }
+
+        .category-row {
+            grid-column: 1 / -1;
+            background: linear-gradient(90deg, 
+                rgba(0, 255, 136, 0.08) 0%, 
+                #151515 20%, 
+                #151515 80%, 
+                rgba(0, 255, 136, 0.08) 100%);
+            padding: 10px 24px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: #00ff88;
+            border-left: 4px solid #00ff88;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-row::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 255, 136, 0.08) 50%, 
+                transparent 100%);
+            animation: wave 6s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0% { left: -100%; opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { left: 100%; opacity: 0.5; }
+        }
+
+        .category-row::after {
+            content: '';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: -10px 0 0 #00ff88,
+                        -20px 0 0 #00ff88,
+                        -30px 0 0 rgba(0, 255, 136, 0.5);
+            animation: dots 2.5s ease-in-out infinite;
+        }
+
+        @keyframes dots {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+        }
+
+        .cell {
+            background: #0d0d0d;
+            padding: 16px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+            min-height: 58px;
+            flex-direction: column;
+            gap: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            color: #e5e5e5;
+            font-weight: 500;
+            line-height: 1.45;
+        }
+
+        .cell::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.04), transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease-out, height 0.6s ease-out, opacity 0.6s ease-out;
+            opacity: 0;
+        }
+
+        .cell:hover {
+            background: #121212;
+            transform: scale(1.005);
+            z-index: 10;
+            box-shadow: 0 0 8px rgba(0, 255, 136, 0.03),
+                        inset 0 0 8px rgba(0, 255, 136, 0.015);
+        }
+
+        .cell:hover::before {
+            width: 200%;
+            height: 200%;
+            opacity: 1;
+        }
+
+        .cell:not(:first-child) {
+            border-left: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .cell.row-label:hover {
+            background: linear-gradient(90deg, #0d0d0d 0%, #101010 100%);
+            color: #00ff88;
+            border-right-color: rgba(0, 255, 136, 0.3);
+        }
+
+        .cell.row-label {
+            justify-content: center;
+            text-align: left;
+            font-weight: 900;
+            color: #ffffff;
+            padding-left: 24px;
+            padding-right: 16px;
+            background: linear-gradient(90deg, #0a0a0a 0%, #0d0d0d 100%);
+            font-size: 15px;
+            letter-spacing: 0.2px;
+            border-right: 2px solid rgba(0, 255, 136, 0.15);
+            position: relative;
+        }
+
+        .cell.row-label::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(0, 255, 136, 0.3) 50%, 
+                transparent 100%);
+        }
+
+        .check {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 255, 136, 0.3),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .check::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #0a0a0a;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .value-highlight {
+            font-size: 22px;
+            font-weight: 900;
+            color: #00ff88;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+
+        .value-highlight.emphasis {
+            font-size: 24px;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        .dash {
+            color: #333;
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .mini-text {
+            display: block;
+            font-size: 11px;
+            color: #888;
+            margin-top: 4px;
+            line-height: 1.3;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .highlight-text {
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.2px;
+        }
+
+        .mini-text strong {
+            color: #fff;
+            font-weight: 800;
+        }
+
+        /* Add-ons Section Styles */
+        .section-title {
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            margin-top: 8px;
+            letter-spacing: 2.5px;
+            color: #00ff88;
+            text-transform: uppercase;
+            border-left: 4px solid #00ff88;
+            padding-left: 14px;
+        }
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .addon-card {
+            background: linear-gradient(135deg, #141414 0%, #0f0f0f 100%);
+            border: 1px solid #2a2a2a;
+            padding: 24px 22px;
+            border-radius: 10px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .addon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ff88 0%, #00cc6a 100%);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .addon-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 255, 136, 0.3);
+            box-shadow: 0 6px 25px rgba(0, 255, 136, 0.08);
+        }
+
+        .addon-card h3 {
+            font-size: 19px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            color: #fff;
+        }
+
+        .addon-price {
+            font-size: 25px;
+            font-weight: 900;
+            color: #00ff88;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .addon-details {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .needs-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .need-card {
+            background: linear-gradient(135deg, #1a0f0f 0%, #0f0a0a 100%);
+            border: 1px solid #2a2a2a;
+            border-left: 4px solid #ff4444;
+            padding: 24px 22px;
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.08);
+        }
+
+        .need-card:hover {
+            transform: translateY(-2px);
+            border-left-width: 5px;
+            box-shadow: 0 6px 25px rgba(255, 68, 68, 0.12);
+        }
+
+        .need-card h3 {
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .need-price {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ff4444;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 12px rgba(255, 68, 68, 0.2);
+        }
+
+        .inkind-section {
+            background: linear-gradient(135deg, #141414 0%, #0f0f0f 100%);
+            border: 1px solid #2a2a2a;
+            padding: 24px 22px;
+            border-radius: 10px;
+            border-top: 4px solid #888;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .inkind-section h3 {
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .inkind-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .inkind-item {
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border-left: 3px solid #555;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .inkind-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-left-color: #00ff88;
+        }
+
+        .inkind-item strong {
+            color: #fff;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #2a2a2a 50%, transparent 100%);
+            margin: 8px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            .slide {
+                padding: 40px 50px;
+            }
+            .slide-title {
+                font-size: 40px;
+            }
+            .slide-subtitle {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .slide {
+                padding: 30px 40px;
+            }
+            .slide-title {
+                font-size: 32px;
+            }
+            .slide-subtitle {
+                font-size: 14px;
+            }
+            .addons-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+            .needs-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .disclaimer-section {
+                padding: 15px 10px;
+            }
+            .disclaimer-text {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+            .disclaimer-text strong {
+                font-size: 16px;
+            }
+            .contact-info {
+                gap: 12px;
+            }
+            .contact-item a {
                 font-size: 13px;
-                padding: 12px 28px;
+                padding: 5px 10px;
+            }
+
+            .slide {
+                padding: 30px 10px;
+                min-height: auto;
+            }
+            .slide-title {
+                font-size: 28px;
+            }
+            .slide-subtitle {
+                font-size: 13px;
+            }
+
+            /* Make tier grid horizontally scrollable */
+            .tier-grid {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                grid-template-columns: 180px repeat(4, 220px);
+                min-width: 1060px;
+                font-size: 12px;
+            }
+            .scroll-hint {
+                display: block;
+            }
+            .tier-name {
+                font-size: 17px;
+            }
+            .tier-price {
+                font-size: 22px;
+            }
+            .tier-label {
+                font-size: 8px;
+            }
+            .cell {
+                font-size: 12px;
+                padding: 12px 10px;
+            }
+            .cell.row-label {
+                font-size: 13px;
+                padding-left: 16px;
+            }
+            .category-row {
+                font-size: 10px;
+                padding: 8px 16px;
+            }
+
+            .addons-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .addon-card {
+                padding: 18px 16px;
+            }
+            .addon-card h3 {
+                font-size: 17px;
+            }
+            .addon-price {
+                font-size: 22px;
+            }
+            .addon-details {
+                font-size: 12px;
+            }
+            .needs-row {
+                gap: 12px;
+            }
+            .need-card {
+                padding: 18px 16px;
+            }
+            .need-card h3 {
+                font-size: 16px;
+            }
+            .need-price {
+                font-size: 20px;
+            }
+            .inkind-section {
+                padding: 18px 16px;
+            }
+            .inkind-section h3 {
+                font-size: 18px;
+            }
+            .inkind-list {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .inkind-item {
+                padding: 12px;
+                font-size: 12px;
+            }
+            .inkind-item strong {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .disclaimer-text {
+                font-size: 12px;
             }
             .disclaimer-text strong {
                 font-size: 14px;
             }
-            .contact-item a {
-                font-size: 13px;
-            }
-        }
-
-        /* Tablet */
-        @media (max-width: 768px) {
-            .disclaimer-footer {
-                top: 10px;
-                padding: 10px 20px;
-                font-size: 12px;
-                max-width: 98%;
-            }
-
-            .disclaimer-text strong {
-                font-size: 13px;
-            }
-
-            .contact-item a {
-                font-size: 12px;
-                padding: 3px 6px;
-            }
-
-            .contact-separator {
-                margin: 0 7px;
-            }
-        }
-
-        /* Mobile */
-        @media (max-width: 480px) {
-            .disclaimer-footer {
-                top: 8px;
-                padding: 10px 16px;
-                font-size: 11px;
-                border-radius: 8px;
-            }
-
-            .disclaimer-text strong {
-                font-size: 12px;
-            }
-
             .contact-info {
-                display: block;
-                margin-top: 6px;
-                margin-left: 0;
+                flex-direction: column;
+                gap: 8px;
             }
-
-            .contact-separator:first-of-type {
+            .contact-separator {
                 display: none;
             }
-
-            .contact-separator {
-                margin: 0 6px;
-            }
-
             .contact-item a {
-                font-size: 11px;
-                padding: 4px 6px;
+                font-size: 12px;
+                display: block;
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="slide-container" id="slideContainer">
-        <iframe id="slide1" src="slide-1-tiers.html" title="Sponsorship Tiers"></iframe>
-        <iframe id="slide2" src="slide-2-addons.html" title="Add-Ons & Options"></iframe>
+    <!-- Disclaimer and Contact Section -->
+    <div class="disclaimer-section">
+        <div class="disclaimer-text">
+            <strong>all prices negotiable</strong> — customize any package to fit your needs
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <a href="https://calendly.com/progsu" target="_blank">schedule a call</a>
+            </div>
+            <span class="contact-separator">•</span>
+            <div class="contact-item">
+                <a href="mailto:programmingclubatgsu@gmail.com">email us</a>
+            </div>
+            <span class="contact-separator">•</span>
+            <div class="contact-item">
+                <a href="tel:8162379012">call: 816-237-9012</a>
+            </div>
+        </div>
     </div>
 
-    <div class="disclaimer-footer">
-        <span class="disclaimer-text"><strong>all prices negotiable</strong></span>
-        <span class="contact-separator">•</span>
-        <span class="contact-info">
-            <span class="contact-item"><a href="https://calendly.com/progsu" target="_blank">calendly</a></span>
-            <span class="contact-separator">•</span>
-            <span class="contact-item"><a href="mailto:programmingclubatgsu@gmail.com">email</a></span>
-            <span class="contact-separator">•</span>
-            <span class="contact-item"><a href="tel:8162379012">call</a></span>
-        </span>
+    <div class="content-wrapper">
+        <!-- Slide 1: Sponsorship Tiers -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Hackday Sponsorship Tiers</div>
+                <div class="slide-subtitle">12-Hour Hackathon Event</div>
+            </div>
+
+            <div class="scroll-hint">← swipe to view all tiers →</div>
+
+            <div class="tier-grid">
+                <!-- Header Row -->
+                <div class="tier-header-cell"></div>
+                <div class="tier-header-cell bronze">
+                    <div class="tier-label">Tier</div>
+                    <div class="tier-name">Bronze</div>
+                    <div class="tier-price">$300</div>
+                    <div class="tier-contribution">&nbsp;</div>
+                </div>
+                <div class="tier-header-cell silver">
+                    <div class="tier-label">Tier</div>
+                    <div class="tier-name">Silver</div>
+                    <div class="tier-price">$750</div>
+                    <div class="tier-contribution">&nbsp;</div>
+                </div>
+                <div class="tier-header-cell gold">
+                    <div class="tier-label">Tier</div>
+                    <div class="tier-name">Gold</div>
+                    <div class="tier-price">$1,500</div>
+                    <div class="tier-contribution">&nbsp;</div>
+                </div>
+                <div class="tier-header-cell partner">
+                    <div class="tier-label">Premium</div>
+                    <div class="tier-name">Title Partner</div>
+                    <div class="tier-price">$3,000+</div>
+                    <div class="tier-contribution">&nbsp;</div>
+                </div>
+
+                <!-- What You Fund -->
+                <div class="category-row">What You Fund</div>
+                <div class="cell row-label">Food/supplies</div>
+                <div class="cell">25% 12hr hackathon</div>
+                <div class="cell"><span class="highlight-text">50% 12hr hackathon</span><span class="mini-text">+ 1 workshop</span></div>
+                <div class="cell"><span class="highlight-text">100% hackathon</span><span class="mini-text">+ semester</span></div>
+                <div class="cell"><span class="highlight-text">Full support</span><span class="mini-text">all events + branding</span></div>
+
+                <!-- Event Benefits -->
+                <div class="category-row">Event Benefits</div>
+                
+                <div class="cell row-label">Exhibitor Tables</div>
+                <div class="cell"><span class="dash">—</span></div>
+                <div class="cell"><span class="value-highlight">1</span></div>
+                <div class="cell"><span class="value-highlight emphasis">2</span></div>
+                <div class="cell"><span class="value-highlight emphasis">4</span></div>
+
+                <div class="cell row-label">Judge Seats</div>
+                <div class="cell"><span class="dash">—</span></div>
+                <div class="cell"><span class="value-highlight">2</span></div>
+                <div class="cell"><span class="value-highlight">2</span></div>
+                <div class="cell"><span class="value-highlight emphasis">3</span></div>
+
+                <div class="cell row-label">Speaking Opportunity</div>
+                <div class="cell">Verbal thank-you</div>
+                <div class="cell">Panel/5-min talk</div>
+                <div class="cell"><span class="highlight-text">2 panel/5min-talk</span></div>
+                <div class="cell"><span class="highlight-text">Presented-by branding</span><span class="mini-text">all semester</span></div>
+
+                <!-- Recruitment -->
+                <div class="category-row">Recruitment</div>
+
+                <div class="cell row-label">Resume Book</div>
+                <div class="cell"><span class="check"></span></div>
+                <div class="cell"><span class="check"></span></div>
+                <div class="cell"><span class="check"></span><span class="mini-text"><strong>Priority</strong></span></div>
+                <div class="cell"><span class="check"></span><span class="mini-text"><strong>Priority (all semester)</strong></span></div>
+
+                <div class="cell row-label">Interview Room</div>
+                <div class="cell"><span class="dash">—</span></div>
+                <div class="cell"><span class="check"></span></div>
+                <div class="cell"><span class="check"></span></div>
+                <div class="cell"><span class="check"></span></div>
+
+                <!-- Marketing -->
+                <div class="category-row">Marketing & Visibility</div>
+
+                <div class="cell row-label">Logo (Web & Social)</div>
+                <div class="cell">Small</div>
+                <div class="cell">Medium</div>
+                <div class="cell"><span class="highlight-text">Large</span></div>
+                <div class="cell"><span class="highlight-text">Huge</span><span class="mini-text">Premium Placement</span></div>
+
+                <div class="cell row-label">Social Posts</div>
+                <div class="cell">1 Post</div>
+                <div class="cell">2 Posts</div>
+                <div class="cell">+ Dedicated Post</div>
+                <div class="cell"><span class="highlight-text">+ Dedicated Reels/Posts</span><span class="mini-text">all semester</span></div>
+
+                <!-- Reporting -->
+                <div class="category-row">Reporting & Insights</div>
+
+                <div class="cell row-label">Event Recap</div>
+                <div class="cell">Photos</div>
+                <div class="cell">+ Attendance</div>
+                <div class="cell"><span class="highlight-text">Full Hackathon Report</span></div>
+                <div class="cell"><span class="highlight-text">Full Monthly Report</span></div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Add-Ons & Options -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Add-Ons & Additional Options</div>
+            </div>
+
+            <div class="section-title">Event Add-Ons</div>
+            <div class="addons-grid">
+                <div class="addon-card">
+                    <h3>Challenge Sponsor</h3>
+                    <div class="addon-price">$600</div>
+                    <div class="addon-details">Branded prize + judging • 2 judge seats • Table • Full recap with winners</div>
+                </div>
+                
+                <div class="addon-card">
+                    <h3>Category Prize</h3>
+                    <div class="addon-price">$400</div>
+                    <div class="addon-details">Single prize category • Winner feature + photo</div>
+                </div>
+                
+                <div class="addon-card">
+                    <h3>Mentor Squad</h3>
+                    <div class="addon-price">$300</div>
+                    <div class="addon-details">Up to 3 mentor seats • Signage • Slide shout-out • Opt-in project list</div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="section-title">Critical Needs</div>
+            <div class="needs-row">
+                <div class="need-card">
+                    <h3>Overall Prize Pool</h3>
+                    <div class="need-price">$200–$800</div>
+                    <div class="addon-details">Hackathon prize funding • "Prizes supported by [Name]" on all materials</div>
+                </div>
+                
+                <div class="need-card">
+                    <h3>Event Media</h3>
+                    <div class="need-price">$150–$400</div>
+                    <div class="addon-details">Professional photographer • Recap video editing • Tagged photo delivery</div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="inkind-section">
+                <h3>In-Kind Contributions</h3>
+                <div class="inkind-list">
+                    <div class="inkind-item">
+                        <strong>Tools & Credits ($250–500)</strong>
+                        Domains, hosting, API/cloud credits • Logo + usage note
+                    </div>
+                    <div class="inkind-item">
+                        <strong>Cloud/API Credits (~$500 FMV)</strong>
+                        Allocated to student teams • Matched to tier benefits
+                    </div>
+                    <div class="inkind-item">
+                        <strong>Snacks/Drinks (~$300 FMV)</strong>
+                        Event refreshments • Thanked on slides
+                    </div>
+                    <div class="inkind-item">
+                        <strong>Swag/Prizes (~$400 FMV)</strong>
+                        Giveaway items • Thanked in recap
+                    </div>
+                    <div class="inkind-item">
+                        <strong>Printing/Signage (~$200 FMV)</strong>
+                        Banners, flyers, QR codes • Credited at FMV
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
