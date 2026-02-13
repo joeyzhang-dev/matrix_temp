@@ -91,12 +91,13 @@
         .content-wrapper {
             max-width: 1920px;
             margin: 0 auto;
+            padding-top: 0;
         }
 
         /* Slide Sections */
         .slide {
-            padding: 60px 70px;
-            min-height: calc(100vh - 120px);
+            padding: 80px 70px 60px;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             background: 
@@ -105,6 +106,7 @@
                 radial-gradient(circle at 50% 50%, rgba(232, 232, 232, 0.02), transparent 50%);
             position: relative;
             scroll-snap-align: start;
+            scroll-margin-top: 100px;
         }
 
         .slide::before {
@@ -174,7 +176,7 @@
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             gap: 12px;
-            padding: 10px 15px;
+            padding: 10px 20px 10px 20px;
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
@@ -204,17 +206,26 @@
             border-radius: 8px;
             padding: 14px 12px;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
-            flex: 0 0 70%;
+            flex: 0 0 75%;
             scroll-snap-align: start;
             scroll-snap-stop: always;
             min-width: 280px;
-            max-width: 320px;
+            max-width: 340px;
+        }
+
+        /* Ensure first and last cards have proper spacing */
+        .mobile-tier-card:first-of-type {
+            margin-left: 0;
+        }
+
+        .mobile-tier-card:last-of-type {
+            margin-right: 20px;
         }
 
         /* Show partial next card as visual hint */
         .mobile-tiers-scroll::after {
             content: '';
-            flex: 0 0 10px;
+            flex: 0 0 5px;
         }
 
         .mobile-tier-card.bronze {
@@ -1036,8 +1047,9 @@
             }
 
             .slide {
-                padding: 30px 10px;
+                padding: 20px 10px;
                 min-height: auto;
+                scroll-margin-top: 0;
             }
             .slide-title {
                 font-size: 28px;
@@ -1055,19 +1067,33 @@
             }
             .mobile-tiers {
                 display: block;
-                margin: 0 -15px;
+                margin: 0;
+            }
+            
+            .mobile-tiers-scroll {
+                padding: 10px 15px;
             }
 
             .mobile-tier-card {
-                flex: 0 0 75%;
-                min-width: 260px;
+                flex: 0 0 80%;
+                min-width: 280px;
+                max-width: 350px;
             }
         }
 
         @media (min-width: 600px) and (max-width: 768px) {
             .mobile-tier-card {
-                flex: 0 0 60%;
-                min-width: 300px;
+                flex: 0 0 65%;
+                min-width: 320px;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 599px) {
+            .mobile-tier-card {
+                flex: 0 0 82%;
+                min-width: 270px;
+                max-width: 330px;
             }
         }
 
@@ -1092,8 +1118,9 @@
             }
             
             .mobile-tier-card {
-                flex: 0 0 85%;
-                min-width: 240px;
+                flex: 0 0 88%;
+                min-width: 260px;
+                max-width: 310px;
             }
 
             .addons-grid {
