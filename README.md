@@ -41,9 +41,11 @@ the sponsorship matrix is a single-page website with three main sections:
 
 ### mobile friendly
 - fully responsive design works on all screen sizes
-- tier table scrolls horizontally on mobile to maintain readability
-- scroll hint appears on mobile: "swipe to view all tiers"
-- all cards and content reflow for optimal mobile viewing
+- on desktop: interactive tier comparison table
+- on mobile: individual tier cards with all benefits clearly shown
+- no horizontal scrolling needed on mobile devices
+- all information easily accessible with natural vertical scrolling
+- color-coded tier cards for quick identification
 
 ## customization
 
