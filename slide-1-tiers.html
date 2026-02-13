@@ -79,9 +79,14 @@
         @media (max-width: 768px) {
             body {
                 padding: 5px;
+                overflow-x: auto;
             }
             .slide {
-                padding: 15px 20px;
+                padding: 15px 10px;
+                min-width: min-content;
+            }
+            .slide-header {
+                margin-bottom: 20px;
             }
             .slide-title {
                 font-size: 24px !important;
@@ -90,14 +95,50 @@
                 font-size: 12px !important;
             }
             .tier-grid {
+                display: block;
                 overflow-x: auto;
-                font-size: 10px;
+                -webkit-overflow-scrolling: touch;
+                white-space: nowrap;
+                min-width: 1200px;
+                width: max-content;
+            }
+            .tier-grid > * {
+                display: inline-block;
+                vertical-align: top;
+                white-space: normal;
+            }
+            
+            /* Make grid scrollable with minimum readable size */
+            .tier-grid {
+                display: grid !important;
+                grid-template-columns: 200px repeat(4, 250px) !important;
+                min-width: 1200px;
+                width: max-content;
+                font-size: 11px;
             }
             .tier-name {
-                font-size: 16px !important;
+                font-size: 17px !important;
             }
             .tier-price {
-                font-size: 20px !important;
+                font-size: 22px !important;
+            }
+            .tier-label {
+                font-size: 8px !important;
+            }
+            .cell {
+                font-size: 12px !important;
+                padding: 12px 10px !important;
+            }
+            .cell.row-label {
+                font-size: 13px !important;
+                padding-left: 16px !important;
+            }
+            .category-row {
+                font-size: 10px !important;
+                padding: 8px 16px !important;
+            }
+            .scroll-hint {
+                display: block !important;
             }
         }
 
@@ -124,6 +165,16 @@
                 transparent 0%, 
                 rgba(0, 255, 136, 0.3) 50%, 
                 transparent 100%) 1;
+        }
+
+        .scroll-hint {
+            display: none;
+            text-align: center;
+            font-size: 11px;
+            color: #00ff88;
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .slide-title {
@@ -624,6 +675,8 @@
             <div class="slide-title">Hackday Sponsorship Tiers</div>
             <div class="slide-subtitle">12-Hour Hackathon Event</div>
         </div>
+
+        <div class="scroll-hint">← swipe to view all tiers →</div>
 
         <div class="tier-grid">
             <!-- Header Row -->
