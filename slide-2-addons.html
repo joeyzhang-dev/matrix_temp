@@ -20,14 +20,15 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 40px;
+            padding: 20px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
         .slide {
-            width: 1920px;
-            height: 1080px;
+            width: 100%;
+            max-width: 1920px;
             margin: 0 auto;
             padding: 40px 60px;
             display: flex;
@@ -37,6 +38,78 @@
                 radial-gradient(circle at 80% 70%, rgba(255, 68, 68, 0.03), transparent 40%),
                 radial-gradient(circle at 50% 50%, rgba(232, 232, 232, 0.02), transparent 50%);
             position: relative;
+        }
+
+        @media (max-width: 1920px) {
+            .slide {
+                padding: 35px 50px;
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .slide {
+                padding: 30px 40px;
+            }
+            .slide-title {
+                font-size: 36px !important;
+            }
+            .section-title {
+                font-size: 12px !important;
+            }
+            .addons-grid {
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                padding: 10px;
+            }
+            .slide {
+                padding: 20px 30px;
+            }
+            .slide-title {
+                font-size: 28px !important;
+            }
+            .section-title {
+                font-size: 11px !important;
+            }
+            .addons-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .needs-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .slide {
+                padding: 15px 20px;
+            }
+            .slide-title {
+                font-size: 22px !important;
+            }
+            .section-title {
+                font-size: 10px !important;
+            }
+            .addons-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .addon-card h3 {
+                font-size: 16px !important;
+            }
+            .addon-price {
+                font-size: 20px !important;
+            }
+            .inkind-list {
+                grid-template-columns: 1fr;
+            }
         }
 
         .slide::before {
