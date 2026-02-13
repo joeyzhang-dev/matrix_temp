@@ -245,32 +245,44 @@
             border-left: 2px solid #00ff88;
         }
 
+        .mobile-benefit-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
         .mobile-benefit {
             background: rgba(255, 255, 255, 0.02);
-            padding: 7px 10px;
-            margin-bottom: 4px;
+            padding: 6px 7px;
             border-radius: 4px;
             border-left: 2px solid rgba(0, 255, 136, 0.25);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 8px;
+            flex-direction: column;
+            gap: 3px;
+            min-height: 36px;
+            justify-content: center;
         }
 
         .mobile-benefit-label {
-            font-size: 11px;
+            font-size: 8px;
             font-weight: 700;
-            color: #ddd;
-            flex: 1;
-            line-height: 1.2;
+            color: #888;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .mobile-benefit-value {
-            font-size: 11px;
-            color: #aaa;
-            line-height: 1.3;
-            text-align: right;
-            flex: 1;
+            font-size: 10px;
+            color: #fff;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        /* Single-column benefits for items that need full width */
+        .mobile-benefit-full {
+            grid-column: 1 / -1;
         }
 
         .mobile-benefit-value strong {
@@ -1183,49 +1195,61 @@
                     </div>
 
                     <div class="mobile-category">What You Fund</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Food/supplies</span>
-                        <span class="mobile-benefit-value">25% hackathon</span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Food/supplies</span>
+                            <span class="mobile-benefit-value">25% hackathon</span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Event Benefits</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Exhibitor Tables</span>
-                        <span class="mobile-benefit-value"><span class="mobile-dash">—</span></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Tables</span>
+                            <span class="mobile-benefit-value"><span class="mobile-dash">—</span></span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Judges</span>
+                            <span class="mobile-benefit-value"><span class="mobile-dash">—</span></span>
+                        </div>
                     </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Judge Seats</span>
-                        <span class="mobile-benefit-value"><span class="mobile-dash">—</span></span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Speaking</span>
-                        <span class="mobile-benefit-value">Thank-you</span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Speaking</span>
+                            <span class="mobile-benefit-value">Verbal thank-you</span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Recruitment</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Resume Book</span>
-                        <span class="mobile-benefit-value"><span class="mobile-check">✓</span></span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Interview Room</span>
-                        <span class="mobile-benefit-value"><span class="mobile-dash">—</span></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Resume Book</span>
+                            <span class="mobile-benefit-value"><span class="mobile-check">✓</span></span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Interview Room</span>
+                            <span class="mobile-benefit-value"><span class="mobile-dash">—</span></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Marketing</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Logo Size</span>
-                        <span class="mobile-benefit-value">Small</span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Social Posts</span>
-                        <span class="mobile-benefit-value">1 Post</span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Logo</span>
+                            <span class="mobile-benefit-value">Small</span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Social</span>
+                            <span class="mobile-benefit-value">1 Post</span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Reporting</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Event Recap</span>
-                        <span class="mobile-benefit-value">Photos</span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Event Recap</span>
+                            <span class="mobile-benefit-value">Photos</span>
+                        </div>
                     </div>
                 </div>
 
@@ -1237,49 +1261,61 @@
                     </div>
 
                     <div class="mobile-category">What You Fund</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Food/supplies</span>
-                        <span class="mobile-benefit-value"><strong>50% hack</strong> + workshop</span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Food/supplies</span>
+                            <span class="mobile-benefit-value"><strong>50% hackathon + 1 workshop</strong></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Event Benefits</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Exhibitor Tables</span>
-                        <span class="mobile-benefit-value"><strong>1</strong></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Tables</span>
+                            <span class="mobile-benefit-value"><strong>1</strong></span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Judges</span>
+                            <span class="mobile-benefit-value"><strong>2</strong></span>
+                        </div>
                     </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Judge Seats</span>
-                        <span class="mobile-benefit-value"><strong>2</strong></span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Speaking</span>
-                        <span class="mobile-benefit-value">Panel/5-min</span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Speaking</span>
+                            <span class="mobile-benefit-value">Panel/5-min talk</span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Recruitment</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Resume Book</span>
-                        <span class="mobile-benefit-value"><span class="mobile-check">✓</span></span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Interview Room</span>
-                        <span class="mobile-benefit-value"><span class="mobile-check">✓</span></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Resume Book</span>
+                            <span class="mobile-benefit-value"><span class="mobile-check">✓</span></span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Interview Room</span>
+                            <span class="mobile-benefit-value"><span class="mobile-check">✓</span></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Marketing</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Logo Size</span>
-                        <span class="mobile-benefit-value">Medium</span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Social Posts</span>
-                        <span class="mobile-benefit-value">2 Posts</span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Logo</span>
+                            <span class="mobile-benefit-value">Medium</span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Social</span>
+                            <span class="mobile-benefit-value">2 Posts</span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Reporting</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Event Recap</span>
-                        <span class="mobile-benefit-value">Photos + Data</span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Event Recap</span>
+                            <span class="mobile-benefit-value">Photos + Attendance</span>
+                        </div>
                     </div>
                 </div>
 
@@ -1291,49 +1327,61 @@
                     </div>
 
                     <div class="mobile-category">What You Fund</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Food/supplies</span>
-                        <span class="mobile-benefit-value"><strong>100% hack</strong> + semester</span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Food/supplies</span>
+                            <span class="mobile-benefit-value"><strong>100% hackathon + semester</strong></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Event Benefits</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Exhibitor Tables</span>
-                        <span class="mobile-benefit-value"><strong>2</strong></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Tables</span>
+                            <span class="mobile-benefit-value"><strong>2</strong></span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Judges</span>
+                            <span class="mobile-benefit-value"><strong>2</strong></span>
+                        </div>
                     </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Judge Seats</span>
-                        <span class="mobile-benefit-value"><strong>2</strong></span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Speaking</span>
-                        <span class="mobile-benefit-value"><strong>2 talks</strong></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Speaking</span>
+                            <span class="mobile-benefit-value"><strong>2 panel/5-min talks</strong></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Recruitment</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Resume Book</span>
-                        <span class="mobile-benefit-value"><span class="mobile-check">✓</span> <strong>Priority</strong></span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Interview Room</span>
-                        <span class="mobile-benefit-value"><span class="mobile-check">✓</span></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Resume Book</span>
+                            <span class="mobile-benefit-value"><span class="mobile-check">✓</span> <strong>Priority</strong></span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Interview Room</span>
+                            <span class="mobile-benefit-value"><span class="mobile-check">✓</span></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Marketing</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Logo Size</span>
-                        <span class="mobile-benefit-value"><strong>Large</strong></span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Social Posts</span>
-                        <span class="mobile-benefit-value"><strong>Featured</strong></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Logo</span>
+                            <span class="mobile-benefit-value"><strong>Large</strong></span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Social</span>
+                            <span class="mobile-benefit-value"><strong>Featured</strong></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Reporting</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Event Recap</span>
-                        <span class="mobile-benefit-value"><strong>Full Report</strong></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Event Recap</span>
+                            <span class="mobile-benefit-value"><strong>Full Hackathon Report</strong></span>
+                        </div>
                     </div>
                 </div>
 
@@ -1345,49 +1393,61 @@
                     </div>
 
                     <div class="mobile-category">What You Fund</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Food/supplies</span>
-                        <span class="mobile-benefit-value"><strong>Full support</strong></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Food/supplies</span>
+                            <span class="mobile-benefit-value"><strong>Full support all events</strong></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Event Benefits</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Exhibitor Tables</span>
-                        <span class="mobile-benefit-value"><strong>4</strong></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Tables</span>
+                            <span class="mobile-benefit-value"><strong>4</strong></span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Judges</span>
+                            <span class="mobile-benefit-value"><strong>3</strong></span>
+                        </div>
                     </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Judge Seats</span>
-                        <span class="mobile-benefit-value"><strong>3</strong></span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Speaking</span>
-                        <span class="mobile-benefit-value"><strong>Title branding</strong></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Speaking</span>
+                            <span class="mobile-benefit-value"><strong>Presented-by branding all semester</strong></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Recruitment</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Resume Book</span>
-                        <span class="mobile-benefit-value"><span class="mobile-check">✓</span> <strong>Priority+</strong></span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Interview Room</span>
-                        <span class="mobile-benefit-value"><span class="mobile-check">✓</span></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Resume Book</span>
+                            <span class="mobile-benefit-value"><span class="mobile-check">✓</span> <strong>Priority</strong></span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Interview Room</span>
+                            <span class="mobile-benefit-value"><span class="mobile-check">✓</span></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Marketing</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Logo Size</span>
-                        <span class="mobile-benefit-value"><strong>Huge (Premium)</strong></span>
-                    </div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Social Posts</span>
-                        <span class="mobile-benefit-value"><strong>Reels all sem</strong></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Logo</span>
+                            <span class="mobile-benefit-value"><strong>Huge (Premium)</strong></span>
+                        </div>
+                        <div class="mobile-benefit">
+                            <span class="mobile-benefit-label">Social</span>
+                            <span class="mobile-benefit-value"><strong>Reels all sem</strong></span>
+                        </div>
                     </div>
 
                     <div class="mobile-category">Reporting</div>
-                    <div class="mobile-benefit">
-                        <span class="mobile-benefit-label">Event Recap</span>
-                        <span class="mobile-benefit-value"><strong>Monthly Report</strong></span>
+                    <div class="mobile-benefit-row">
+                        <div class="mobile-benefit mobile-benefit-full">
+                            <span class="mobile-benefit-label">Event Recap</span>
+                            <span class="mobile-benefit-value"><strong>Full Monthly Report</strong></span>
+                        </div>
                     </div>
                 </div>
             </div>
