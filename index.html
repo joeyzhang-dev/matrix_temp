@@ -164,6 +164,38 @@
         /* Mobile Tier Cards */
         .mobile-tiers {
             display: none;
+            position: relative;
+        }
+
+        .mobile-tiers-scroll {
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 12px;
+            padding: 10px 15px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .mobile-tiers-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .swipe-hint {
+            text-align: center;
+            font-size: 11px;
+            color: #00ff88;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            animation: pulse-hint 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-hint {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
         }
 
         .mobile-tier-card {
@@ -171,8 +203,18 @@
             border: 2px solid;
             border-radius: 8px;
             padding: 14px 12px;
-            margin-bottom: 14px;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+            flex: 0 0 70%;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-width: 280px;
+            max-width: 320px;
+        }
+
+        /* Show partial next card as visual hint */
+        .mobile-tiers-scroll::after {
+            content: '';
+            flex: 0 0 10px;
         }
 
         .mobile-tier-card.bronze {
@@ -1013,6 +1055,45 @@
             }
             .mobile-tiers {
                 display: block;
+                margin: 0 -15px;
+            }
+
+            .mobile-tier-card {
+                flex: 0 0 75%;
+                min-width: 260px;
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 768px) {
+            .mobile-tier-card {
+                flex: 0 0 60%;
+                min-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .disclaimer-text {
+                font-size: 12px;
+            }
+            .disclaimer-text strong {
+                font-size: 14px;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .contact-separator {
+                display: none;
+            }
+            .contact-item a {
+                font-size: 12px;
+                display: block;
+                width: 100%;
+            }
+            
+            .mobile-tier-card {
+                flex: 0 0 85%;
+                min-width: 240px;
             }
 
             .addons-grid {
@@ -1059,27 +1140,6 @@
             }
             .inkind-item strong {
                 font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .disclaimer-text {
-                font-size: 12px;
-            }
-            .disclaimer-text strong {
-                font-size: 14px;
-            }
-            .contact-info {
-                flex-direction: column;
-                gap: 8px;
-            }
-            .contact-separator {
-                display: none;
-            }
-            .contact-item a {
-                font-size: 12px;
-                display: block;
-                width: 100%;
             }
         }
     </style>
@@ -1214,6 +1274,8 @@
 
             <!-- Mobile Tier Cards (shown on mobile only) -->
             <div class="mobile-tiers">
+                <div class="swipe-hint">← swipe to view all tiers →</div>
+                <div class="mobile-tiers-scroll">
                 <!-- Bronze Tier -->
                 <div class="mobile-tier-card bronze">
                     <div class="mobile-tier-header">
@@ -1476,6 +1538,7 @@
                             <span class="mobile-benefit-value"><strong>Full Monthly Report</strong></span>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
