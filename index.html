@@ -981,6 +981,49 @@
             font-size: 13px;
         }
 
+        .any-support {
+            margin-top: 28px;
+            padding: 24px 28px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.06) 0%, rgba(10, 10, 10, 0.95) 100%);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .any-support h3 {
+            font-size: 20px;
+            font-weight: 900;
+            color: #00ff88;
+            margin-bottom: 8px;
+        }
+
+        .any-support p {
+            font-size: 14px;
+            color: #bbb;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .any-support .support-examples {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .any-support .support-tag {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ddd;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+
         .section-divider {
             height: 2px;
             background: linear-gradient(90deg, transparent 0%, #2a2a2a 50%, transparent 100%);
@@ -1168,6 +1211,20 @@
             .inkind-item strong {
                 font-size: 12px;
             }
+            .any-support {
+                padding: 18px 16px;
+                margin-top: 20px;
+            }
+            .any-support h3 {
+                font-size: 17px;
+            }
+            .any-support p {
+                font-size: 13px;
+            }
+            .any-support .support-tag {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
         }
     </style>
 </head>
@@ -1208,35 +1265,35 @@
                 <div class="tier-header-cell bronze">
                     <div class="tier-label">Tier</div>
                     <div class="tier-name">Bronze</div>
-                    <div class="tier-price">$300</div>
+                    <div class="tier-price">$500</div>
                     <div class="tier-contribution">&nbsp;</div>
                 </div>
                 <div class="tier-header-cell silver">
                     <div class="tier-label">Tier</div>
                     <div class="tier-name">Silver</div>
-                    <div class="tier-price">$750</div>
+                    <div class="tier-price">$1,200</div>
                     <div class="tier-contribution">&nbsp;</div>
                 </div>
                 <div class="tier-header-cell gold">
                     <div class="tier-label">Tier</div>
                     <div class="tier-name">Gold</div>
-                    <div class="tier-price">$1,500</div>
+                    <div class="tier-price">$2,500</div>
                     <div class="tier-contribution">&nbsp;</div>
                 </div>
                 <div class="tier-header-cell partner">
                     <div class="tier-label">Premium</div>
                     <div class="tier-name">Title Partner</div>
-                    <div class="tier-price">$3,000+</div>
+                    <div class="tier-price">$5,000+</div>
                     <div class="tier-contribution">&nbsp;</div>
                 </div>
 
                 <!-- What You Fund -->
                 <div class="category-row">What You Fund</div>
                 <div class="cell row-label">Food/supplies</div>
-                <div class="cell">25% 12hr hackathon</div>
-                <div class="cell"><span class="highlight-text">50% 12hr hackathon</span><span class="mini-text">+ 1 workshop</span></div>
-                <div class="cell"><span class="highlight-text">100% hackathon</span><span class="mini-text">+ semester</span></div>
-                <div class="cell"><span class="highlight-text">Full support</span><span class="mini-text">all events + branding</span></div>
+                <div class="cell">~1 meal covered</div>
+                <div class="cell"><span class="highlight-text">~2 meals covered</span><span class="mini-text">+ 1 workshop</span></div>
+                <div class="cell"><span class="highlight-text">All food covered</span><span class="mini-text">+ supplies</span></div>
+                <div class="cell"><span class="highlight-text">Full event support</span><span class="mini-text">food + venue + marketing</span></div>
 
                 <!-- Event Benefits -->
                 <div class="category-row">Event Benefits</div>
@@ -1307,14 +1364,14 @@
                 <div class="mobile-tier-card partner">
                     <div class="mobile-tier-header">
                         <div class="mobile-tier-name">Title Partner</div>
-                        <div class="mobile-tier-price">$3,000+</div>
+                        <div class="mobile-tier-price">$5,000+</div>
                     </div>
 
                     <div class="mobile-category">What You Fund</div>
                     <div class="mobile-benefit-row">
                         <div class="mobile-benefit mobile-benefit-full">
                             <span class="mobile-benefit-label">Food/supplies</span>
-                            <span class="mobile-benefit-value"><strong>Full support all events</strong></span>
+                            <span class="mobile-benefit-value"><strong>Full event support</strong></span>
                         </div>
                     </div>
 
@@ -1372,14 +1429,14 @@
                 <div class="mobile-tier-card gold">
                     <div class="mobile-tier-header">
                         <div class="mobile-tier-name">Gold</div>
-                        <div class="mobile-tier-price">$1,500</div>
+                        <div class="mobile-tier-price">$2,500</div>
                     </div>
 
                     <div class="mobile-category">What You Fund</div>
                     <div class="mobile-benefit-row">
                         <div class="mobile-benefit mobile-benefit-full">
                             <span class="mobile-benefit-label">Food/supplies</span>
-                            <span class="mobile-benefit-value"><strong>100% hackathon + semester</strong></span>
+                            <span class="mobile-benefit-value"><strong>All food + supplies</strong></span>
                         </div>
                     </div>
 
@@ -1438,14 +1495,14 @@
                 <div class="mobile-tier-card silver">
                     <div class="mobile-tier-header">
                         <div class="mobile-tier-name">Silver</div>
-                        <div class="mobile-tier-price">$750</div>
+                        <div class="mobile-tier-price">$1,200</div>
                     </div>
 
                     <div class="mobile-category">What You Fund</div>
                     <div class="mobile-benefit-row">
                         <div class="mobile-benefit mobile-benefit-full">
                             <span class="mobile-benefit-label">Food/supplies</span>
-                            <span class="mobile-benefit-value"><strong>50% hackathon + 1 workshop</strong></span>
+                            <span class="mobile-benefit-value"><strong>~2 meals + 1 workshop</strong></span>
                         </div>
                     </div>
 
@@ -1504,14 +1561,14 @@
                 <div class="mobile-tier-card bronze">
                     <div class="mobile-tier-header">
                         <div class="mobile-tier-name">Bronze</div>
-                        <div class="mobile-tier-price">$300</div>
+                        <div class="mobile-tier-price">$500</div>
                     </div>
 
                     <div class="mobile-category">What You Fund</div>
                     <div class="mobile-benefit-row">
                         <div class="mobile-benefit mobile-benefit-full">
                             <span class="mobile-benefit-label">Food/supplies</span>
-                            <span class="mobile-benefit-value">25% hackathon</span>
+                            <span class="mobile-benefit-value">~1 meal covered</span>
                         </div>
                     </div>
 
@@ -1580,19 +1637,19 @@
             <div class="addons-grid">
                 <div class="addon-card">
                     <h3>Challenge Sponsor</h3>
-                    <div class="addon-price">$600</div>
+                    <div class="addon-price">$800</div>
                     <div class="addon-details">Branded prize + judging • 2 judge seats • Table • Full recap with winners</div>
                 </div>
-                
+
                 <div class="addon-card">
                     <h3>Category Prize</h3>
-                    <div class="addon-price">$400</div>
+                    <div class="addon-price">$500</div>
                     <div class="addon-details">Single prize category • Winner feature + photo</div>
                 </div>
-                
+
                 <div class="addon-card">
                     <h3>Mentor Squad</h3>
-                    <div class="addon-price">$300</div>
+                    <div class="addon-price">$400</div>
                     <div class="addon-details">Up to 3 mentor seats • Signage • Slide shout-out • Opt-in project list</div>
                 </div>
             </div>
@@ -1603,13 +1660,13 @@
             <div class="needs-row">
                 <div class="need-card">
                     <h3>Overall Prize Pool</h3>
-                    <div class="need-price">$200–$800</div>
+                    <div class="need-price">$300–$1,000</div>
                     <div class="addon-details">Hackathon prize funding • "Prizes supported by [Name]" on all materials</div>
                 </div>
-                
+
                 <div class="need-card">
                     <h3>Event Media</h3>
-                    <div class="need-price">$150–$400</div>
+                    <div class="need-price">$200–$500</div>
                     <div class="addon-details">Professional photographer • Recap video editing • Tagged photo delivery</div>
                 </div>
             </div>
@@ -1620,25 +1677,39 @@
                 <h3>In-Kind Contributions</h3>
                 <div class="inkind-list">
                     <div class="inkind-item">
-                        <strong>Tools & Credits ($250–500)</strong>
+                        <strong>Tools & Credits ($300–600)</strong>
                         Domains, hosting, API/cloud credits • Logo + usage note
                     </div>
                     <div class="inkind-item">
-                        <strong>Cloud/API Credits (~$500 FMV)</strong>
+                        <strong>Cloud/API Credits (~$600 FMV)</strong>
                         Allocated to student teams • Matched to tier benefits
                     </div>
                     <div class="inkind-item">
-                        <strong>Snacks/Drinks (~$300 FMV)</strong>
+                        <strong>Snacks/Drinks (~$400 FMV)</strong>
                         Event refreshments • Thanked on slides
                     </div>
                     <div class="inkind-item">
-                        <strong>Swag/Prizes (~$400 FMV)</strong>
+                        <strong>Swag/Prizes (~$500 FMV)</strong>
                         Giveaway items • Thanked in recap
                     </div>
                     <div class="inkind-item">
                         <strong>Printing/Signage (~$200 FMV)</strong>
                         Banners, flyers, QR codes • Credited at FMV
                     </div>
+                </div>
+            </div>
+
+            <div class="any-support">
+                <h3>Any Support Goes a Long Way</h3>
+                <p>Don't see a fit above? We welcome any form of contribution. Even non-monetary support helps us create a better experience for 200+ students.</p>
+                <div class="support-examples">
+                    <span class="support-tag">Volunteer Judges</span>
+                    <span class="support-tag">Company Swag</span>
+                    <span class="support-tag">Mentors</span>
+                    <span class="support-tag">Snacks & Drinks</span>
+                    <span class="support-tag">Raffle Prizes</span>
+                    <span class="support-tag">API / Cloud Credits</span>
+                    <span class="support-tag">Branded Merch</span>
                 </div>
             </div>
         </div>
